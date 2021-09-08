@@ -1,4 +1,4 @@
-import view from './view.js';
+import view from './View.js';
 import icons from 'url:../../img/icons.svg';
 
 class paginationView extends view {
