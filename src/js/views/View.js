@@ -61,7 +61,6 @@ export default class {
     `;
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
-    console.log('hello');
   }
   renderError(message = this._errorMessage) {
     const markup = `

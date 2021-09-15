@@ -79,7 +79,7 @@ const controlAddRecipe = async function (newRecipe) {
     addRecipeView.renderSpinner();
 
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
+    // console.log(model.state.recipe);
 
     recipeView.render(model.state.recipe);
     addRecipeView.renderMessage();
@@ -106,3 +106,27 @@ const init = function () {
   addRecipeView.addHandeleUpload(controlAddRecipe);
 };
 init();
+
+// responsiv page
+const form = document.querySelector('.search');
+const serch = document.querySelector('.search-results');
+const btnList = document.querySelector('.nav-bar');
+const positonList = document.querySelector('.positonList');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  serch.style.display = 'block';
+  positonList.textContent = 'Hidden List';
+  serch.classList.remove('showList');
+});
+btnList.addEventListener('click', function () {
+  if (!serch.classList.contains('showList')) {
+    serch.style.display = 'none';
+    serch.classList.toggle('showList');
+    positonList.textContent = 'Show List';
+  } else {
+    serch.style.display = 'block';
+    serch.classList.toggle('showList');
+    positonList.textContent = 'Hidden List';
+  }
+});
