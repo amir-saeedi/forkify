@@ -109,6 +109,7 @@ init();
 
 // responsiv page
 const form = document.querySelector('.search');
+const results = document.querySelector('.results');
 const serch = document.querySelector('.search-results');
 const btnList = document.querySelector('.nav-bar');
 const positonList = document.querySelector('.positonList');
@@ -118,15 +119,20 @@ form.addEventListener('submit', function (e) {
   serch.style.display = 'block';
   positonList.textContent = 'Hidden List';
   serch.classList.remove('showList');
+  serch.classList.remove('hidden');
 });
 btnList.addEventListener('click', function () {
   if (!serch.classList.contains('showList')) {
     serch.style.display = 'none';
+    serch.classList.add('hidden');
     serch.classList.toggle('showList');
     positonList.textContent = 'Show List';
   } else {
     serch.style.display = 'block';
-    serch.classList.toggle('showList');
-    positonList.textContent = 'Hidden List';
+    setTimeout(function () {
+      serch.classList.remove('hidden');
+      serch.classList.toggle('showList');
+      positonList.textContent = 'Hidden List';
+    }, 10);
   }
 });

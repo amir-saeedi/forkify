@@ -38,7 +38,10 @@
   }
   .search-results {
     z-index: 100;
+    transition: all 2s;
     display: none;
+  }
+  .search-results-heddien {
   }
   .pagination {
     padding-bottom: 5px;
